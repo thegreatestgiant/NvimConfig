@@ -1,0 +1,58 @@
+local kinds = {
+	Array = " ",
+	Boolean = "󰨙 ",
+	Class = " ",
+	Codeium = "󰘦 ",
+	Color = " ",
+	Control = " ",
+	Collapsed = " ",
+	Constant = "󰏿 ",
+	Constructor = " ",
+	Copilot = " ",
+	Enum = " ",
+	EnumMember = " ",
+	Event = " ",
+	Field = " ",
+	File = " ",
+	Folder = " ",
+	Function = "󰊕 ",
+	Interface = " ",
+	Key = " ",
+	Keyword = " ",
+	Method = "󰊕 ",
+	Module = " ",
+	Namespace = "󰦮 ",
+	Null = " ",
+	Number = "󰎠 ",
+	Object = " ",
+	Operator = " ",
+	Package = " ",
+	Property = " ",
+	Reference = " ",
+	Snippet = " ",
+	String = " ",
+	Struct = "󰆼 ",
+	TabNine = "󰏚 ",
+	Text = " ",
+	TypeParameter = " ",
+	Unit = " ",
+	Value = " ",
+	Variable = "󰀫 ",
+}
+
+return {
+	"SmiteshP/nvim-navic",
+	lazy = true,
+	init = function()
+		vim.g.navic_silence = true
+	end,
+	opts = function()
+		return {
+			separator = " ",
+			highlight = true,
+			depth_limit = 5,
+			icons = kinds,
+			lazy_update_context = true,
+		}
+	end,
+}

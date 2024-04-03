@@ -30,24 +30,9 @@ return {
 			vim.g.mason_binaries_list = opts.ensure_installed
 		end,
 	},
-	-- {
-	-- 	"WhoIsSethDaniel/mason-tool-installer.nvim",
-	-- 	lazy = false,
-	-- 	opts = {
-	-- 		ensure_installed = {
-	-- 			-- "black",
-	-- 			-- "isort",
-	-- 			-- "lua_ls",
-	-- 			-- "marksman",
-	-- 			-- "stylua",
-	-- 		},
-	-- 	},
-	-- },
 	{
 		"williamboman/mason-lspconfig.nvim",
-		opts = {
-			auto_install = true,
-		},
+		opts = { auto_install = true },
 	},
 	{
 		"neovim/nvim-lspconfig",
@@ -55,6 +40,11 @@ return {
 		config = function()
 			require("utils").load_mappings("lsp")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			local on_attach = function(client, bufnr)
+				if client.server_capabilities.documentSymbolProvider then
+					navic.attach(client, bufnr)
+				end
+			end
 
 			local lspcfg = require("lspconfig")
 
@@ -63,6 +53,7 @@ return {
 			for _, lsp in ipairs(servers) do
 				lspcfg[lsp].setup({
 					capabilities = capabilities,
+					on_attach = on_attach,
 				})
 			end
 		end,
