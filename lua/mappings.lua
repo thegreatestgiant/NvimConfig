@@ -87,10 +87,16 @@ M.null_ls = {
 
 M.trouble = {
 	n = {
-		["<leader>td"] = { "<cmd>TroubleToggle document_diagnostics<cr>", "Document Diagnostics (Trouble)" },
-		["<leader>tw"] = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Workspace Diagnostics (Trouble)" },
-		["<leader>tl"] = { "<cmd>TroubleToggle loclist<cr>", "Location List (Trouble)" },
-		["<leader>tq"] = { "<cmd>TroubleToggle quickfix<cr>", "Quickfix List (Trouble)" },
+		["<leader>td"] = { "<cmd>Trouble document_diagnostics<cr>", "Document Diagnostics (Trouble)" },
+		["<leader>tw"] = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics (Trouble)" },
+		["<leader>tl"] = { "<cmd>Trouble loclist<cr>", "Location List (Trouble)" },
+		["<leader>tc"] = {
+			function()
+				require("trouble").close()
+			end,
+			"Close any Trouble Window",
+		},
+		["<leader>tq"] = { "<cmd>Trouble quickfix<cr>", "Quickfix List (Trouble)" },
 		["[q"] = {
 			function()
 				if require("trouble").is_open() then

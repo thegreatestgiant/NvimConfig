@@ -2,7 +2,7 @@ return {
 	"folke/trouble.nvim",
 	branch = "dev",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
-	cmd = { "Trouble", "TroubleToggle" },
+	cmd = { "Trouble", "TroubleToggle", "TroubleClose" },
 	opts = {
 		use_diagnostic_signs = true,
 	},
