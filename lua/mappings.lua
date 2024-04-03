@@ -120,4 +120,23 @@ M.trouble = {
 	},
 }
 
+M.todo = {
+	n = {
+		["]t"] = {
+			function()
+				require("todo-comments").jump_next()
+			end,
+			"Next Todo Comment",
+		},
+		["[t"] = {
+			function()
+				require("todo-comments").jump_prev()
+			end,
+			"Previous Todo Comment",
+		},
+		["<leader>tt"] = { "<cmd> TodoTrouble <CR>", "Todo via Trouble" },
+		["<leader>ft"] = { "<cmd> TodoTelescope <CR>", "Todo via Telescope" },
+	},
+}
+
 return M
