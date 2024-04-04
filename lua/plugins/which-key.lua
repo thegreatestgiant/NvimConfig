@@ -13,6 +13,7 @@ return {
 			["<leader>t"] = { name = "+trouble" },
 			["<leader>n"] = { name = "+noice/notify" },
 			["<leader>q"] = { name = "+quit/sessions" },
+			["<leader>g"] = { name = "+git" },
 		},
 	},
 	config = function(_, opts)
