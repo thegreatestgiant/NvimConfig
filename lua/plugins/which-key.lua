@@ -11,6 +11,7 @@ return {
 			mode = { "n", "v" },
 			["<leader>f"] = { name = "+find" },
 			["<leader>t"] = { name = "+trouble" },
+			["<leader>n"] = { name = "+noice/notify" },
 		},
 	},
 	config = function(_, opts)

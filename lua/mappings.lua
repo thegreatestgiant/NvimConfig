@@ -141,30 +141,31 @@ M.notify = {
 	n = {
     -- stylua: ignore
 		["<leader>nd"] = { function() require("notify").dismiss({ pending = false }) end, "[N]otify [D]ismiss" },
+		["<leader>nh"] = { "<cmd> Telescope notify", "[N]otify [H]istory" },
 	},
 }
 
--- stylua: ignore
 M.noice = {
-  n = {
-    ["<leader>nl"] = { function() require("noice").cmd("last") end, "Noice Last Message" },
-    ["<leader>nh"] = { function() require("noice").cmd("history") end, "Noice History" },
-    ["<leader>na"] = { function() require("noice").cmd("all") end, "Noice All" },
-    ["<leader>nd"] = { function() require("noice").cmd("dismiss") end, "Dismiss All" },
+	n = {
+		["<leader>nl"] = { "<cmd> Noice last <CR>", "Noice Last Message" },
+		["<leader>nh"] = { "<cmd> Noice telescope <CR>", "Noice History" },
+		["<leader>nd"] = { "<cmd> Noice dismiss <CR>", "Dismiss All" },
+    -- stylua: ignore
     ["<c-f>"] = { function() if not require("noice.lsp").scroll(4) then return "<c-f>" end end, "Scroll Forward" },
+    -- stylua: ignore
     ["<c-b>"] = { function() if not require("noice.lsp").scroll(-4) then return "<c-b>" end end, "Scroll Backward" }
-  },
+,
+	},
+  -- stylua: ignore
   i = {
     ["<c-f>"] = { function() if not require("noice.lsp").scroll(4) then return "<c-f>" end end, "Scroll Forward" },
     ["<c-b>"] = { function() if not require("noice.lsp").scroll(-4) then return "<c-b>" end end, "Scroll Backward" }
   },
+  -- stylua: ignore
   s = {
     ["<c-f>"] = { function() if not require("noice.lsp").scroll(4) then return "<c-f>" end end, "Scroll Forward" },
     ["<c-b>"] = { function() if not require("noice.lsp").scroll(-4) then return "<c-b>" end end, "Scroll Backward" }
   },
-	c = {
-    ["<S-Enter>"]= { function() require("noice").redirect(vim.fn.getcmdline()) end, "Redirect Cmdline" },
-	},
 }
 
 return M
