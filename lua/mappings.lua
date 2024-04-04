@@ -3,6 +3,7 @@ local M = {}
 M.general = {
 	n = {
 		["<C-n>"] = { "<cmd> Neotree toggle <CR>", "Toggle Neo-Tree" },
+		["<leader>qq"] = { "<cmd> qa <CR>", "Quit All" },
 
 		-- switch between windows
 		["<C-h>"] = { "<C-w>h", "Window left" },
@@ -163,17 +164,15 @@ M.noice = {
   },
   -- stylua: ignore
   s = {
-    ["<c-f>"] = { function() if not require("noice.lsp").scroll(4) then return "<c-f>" end end, "Scroll Forward" },
-    ["<c-b>"] = { function() if not require("noice.lsp").scroll(-4) then return "<c-b>" end end, "Scroll Backward" }
   },
 }
 
 M.sessions = {
   -- stylua: ignore
 	n = {
-      { "<leader>qs", function() require("persistence").load() end, "Restore Session" },
-      { "<leader>ql", function() require("persistence").load({ last = true }) end, "Restore Last Session" },
-      { "<leader>qd", function() require("persistence").stop() end, "Don't Save Current Session" },
+      ["<leader>qs"] = { function() require("persistence").load() end, "Restore Session" },
+      ["<leader>ql"] = { function() require("persistence").load({ last = true }) end, "Restore Last Session" },
+      ["<leader>qd"] = { function() require("persistence").stop() end, "Don't Save Current Session" },
   },
 }
 

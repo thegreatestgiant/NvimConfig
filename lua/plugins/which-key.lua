@@ -12,6 +12,7 @@ return {
 			["<leader>f"] = { name = "+find" },
 			["<leader>t"] = { name = "+trouble" },
 			["<leader>n"] = { name = "+noice/notify" },
+			["<leader>q"] = { name = "+quit/sessions" },
 		},
 	},
 	config = function(_, opts)
