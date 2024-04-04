@@ -128,20 +128,42 @@ M.trouble = {
 
 M.todo = {
 	n = {
-		["]t"] = {
-			function()
-				require("todo-comments").jump_next()
-			end,
-			"Next Todo Comment",
-		},
-		["[t"] = {
-			function()
-				require("todo-comments").jump_prev()
-			end,
-			"Previous Todo Comment",
-		},
 		["<leader>tt"] = { "<cmd> TodoTrouble <CR>", "Todo via Trouble" },
 		["<leader>ft"] = { "<cmd> TodoTelescope <CR>", "Todo via Telescope" },
+    -- stylua: ignore
+    ["]t"] = { function() require("todo-comments").jump_next() end, "Next Todo Comment" },
+    -- stylua: ignore
+		["[t"] = { function() require("todo-comments").jump_prev() end, "Previous Todo Comment" },
+	},
+}
+
+M.notify = {
+	n = {
+    -- stylua: ignore
+		["<leader>nd"] = { function() require("notify").dismiss({ pending = false }) end, "[N]otify [D]ismiss" },
+	},
+}
+
+-- stylua: ignore
+M.noice = {
+  n = {
+    ["<leader>nl"] = { function() require("noice").cmd("last") end, "Noice Last Message" },
+    ["<leader>nh"] = { function() require("noice").cmd("history") end, "Noice History" },
+    ["<leader>na"] = { function() require("noice").cmd("all") end, "Noice All" },
+    ["<leader>nd"] = { function() require("noice").cmd("dismiss") end, "Dismiss All" },
+    ["<c-f>"] = { function() if not require("noice.lsp").scroll(4) then return "<c-f>" end end, "Scroll Forward" },
+    ["<c-b>"] = { function() if not require("noice.lsp").scroll(-4) then return "<c-b>" end end, "Scroll Backward" }
+  },
+  i = {
+    ["<c-f>"] = { function() if not require("noice.lsp").scroll(4) then return "<c-f>" end end, "Scroll Forward" },
+    ["<c-b>"] = { function() if not require("noice.lsp").scroll(-4) then return "<c-b>" end end, "Scroll Backward" }
+  },
+  s = {
+    ["<c-f>"] = { function() if not require("noice.lsp").scroll(4) then return "<c-f>" end end, "Scroll Forward" },
+    ["<c-b>"] = { function() if not require("noice.lsp").scroll(-4) then return "<c-b>" end end, "Scroll Backward" }
+  },
+	c = {
+    ["<S-Enter>"]= { function() require("noice").redirect(vim.fn.getcmdline()) end, "Redirect Cmdline" },
 	},
 }
 
