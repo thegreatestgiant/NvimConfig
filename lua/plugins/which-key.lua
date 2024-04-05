@@ -14,6 +14,7 @@ return {
 			["<leader>n"] = { name = "+noice/notify" },
 			["<leader>q"] = { name = "+quit/sessions" },
 			["<leader>g"] = { name = "+git" },
+			["<leader>d"] = { name = "+debug" },
 		},
 	},
 	config = function(_, opts)

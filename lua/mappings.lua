@@ -176,4 +176,11 @@ M.sessions = {
   },
 }
 
+M.dap = {
+	n = {
+		["<leader>db"] = { "<cmd> DapToggleBreakpoint <CR>", "Add breakpoint to file" },
+		["<leader>dc"] = { "<cmd> DapContinue <CR>", "Debug continue" },
+	},
+}
+
 return M
